@@ -1,0 +1,201 @@
+
+MAVEN:- maven is a build tool.
+-----
+maven performs:
+--------------
+--> Maven provides different directories to the different applications.
+--> It downloads the required denpendencies.[JARs,WARs,EARs]
+--> Maven compile's the source code.
+--> Maven compile's the test cases.
+--> Packaging the applications.[JARs,WARs,EARs]
+--> Run applications directly.
+--> Starts the server.
+--> deploying the applications, like your JARs,WARs,EARs files or packages.
+--> It prepare reports and documents.
+
+* Maven is to automate all the build processes.
+
+Project object model[pom.xml]:
+------------------------------
+--> It is an xml file.
+--> It will provide all the project build configuration details which are required by maven.
+--> when we create a maven project than pom.xml file is generated automatically by MAVEN.
+
+-->POM.XML file responsibilities:
+--------------------------------
+--> Project description
+--> Repository
+--> Dependency management
+--> Project inheritance
+--> Build configuration
+--> Build profiles.
+
+
+1. Project description:
+-----------------------
+--> It provides some details about the project like project name, version number, packaging type....etc
+
+2. Repository:
+--------------
+--> In maven, Repository is a place which will provide all dependencies like (JARs,WARs,EARs) to our applications.
+--> Repositories are able to manage all the JARs,WARs,EARs files which are required by our application.
+--> There are three types of repositories are existed in MAVEN.
+    1. Local repository
+    2. Central repository
+    3. Remote repository
+
+1. Local repository:
+--------------------
+--> Local repository is located in your system, which will be created  by any maven(mvn) command initially.
+--> When we require any JARs,WARs,EARs files for our application then maven will search for dependencies first in local
+    repository.
+
+2. Central repository:
+----------------------
+--> It is a default repository in maven. it is existed in internet at particular URL.
+-->Apache software foundation has provided a seperate central repository in the form of one url.
+    "https://mvnrepository.com/repos/central".
+--> If we want to use third party repositories in our application then we must configure it in pom.xml file.
+
+3. Remote repository:
+---------------------
+--> If the dependencies are not existed in local repositories and central repositories then maven will search for 
+    them in remote repository.
+
+
+
+NOTE: 
+----
+* If the dependencies are available in local repository then maven will execute directly.
+* If the dependencies are not available in local repository then maven will search at central repository.
+* If the dependencies are avaliable in central repository then maven will download them to local repository.
+* If the dependencies are not available in cental repository then maven will search at remote repository.
+* If the dependencies are avaliable in remote repository then maven will download them to local repository.
+
+
+** If remote repository is not available or dependencies are not available then maven will raise some exception.
+
+
+3. Dependency management:
+-------------------------
+--> In maven projects, dependency means dependent JAR files.
+--> JARs,WARs,EARs files are treated as dependency files.
+--> MAVEN is not giving any option to developers to downlaod the jAR files, instead of MAVEN will download the required 
+    JAR files and maven will keep that jar files in our aplication. but, we need to specify which dependencies
+    we need in our application.
+     
+     <project>
+     --------
+     <dependencies>
+        <groupid>
+	<artifactid>it means specifing dependency name eg: >hibernate-core</artifactid>
+	<version>it means specifing the version eg: 3.83-final</version>
+	<scope>provided</scope>
+	</dependency>
+	</dependencies>
+
+
+* Maven follows transitive dependencies.
+--> Trasitive dependency:
+------------------------
+--> Any dependency that depends on another dependency is said to be transitive dependency.
+--> Eg:- A--->B--->C--->D
+
+--> A is depending on B and B is dependening on C and C is depending on D.
+--> If we need dependency A, then maven will  download A dependency along with all dependencies like ABCD.
+
+Scopes in maven:- To specify the life time of dependencies (JARs,WARs,EARs).
+
+Types of scopes in maven:- There are 6 types,
+
+1. Compile
+2. Provided
+3. Runtime
+4. Test
+5. System
+6. Import
+
+1. Compile Scope:-  This scope will be used at three stages, like compile, test and run.
+2. Provided Scope:- This scope will be used at compiling and testing stages.
+3. Runtime Scope:-  This scope will be used at runtime and test cases.
+4. Test Scope:-     This scope will be used at only test cases
+5. System Scope:-   This scope will be used as provided scope only. but, the diff is it will not get any jar files
+                    from remote repository, it will get jar files only from central repository.
+6. Import Scope:-   This scope will be used at pom inhertance only. like parent pom and child pom.
+
+
+4. Project Inheritance:
+-----------------------
+--> It is nothing but extending, configurations of one pom to another pom.
+--> We can make parent pom and child pom.
+  
+-->Parent POM:
+-------------
+<project>
+<modelversion>
+<groupid>
+<artifactid>
+<version>
+** <packaging>pom</packaging>   ---> If we want to make one pom is parent then represent the package value must be pom.
+
+-->Child POM:
+-------------
+<project>
+   <parent>
+     <groupid>
+     <artifactid>
+     <version>
+     </parent>
+     </project>
+
+--> Effective POM = Super POM + Present application POM
+--> Command for this -- mvn help:effective-pom
+
+5. Build configurations:
+------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
