@@ -62,8 +62,6 @@ Project object model[pom.xml]:
 --> If the dependencies are not existed in local repositories and central repositories then maven will search for 
     them in remote repository.
 
-
-
 NOTE: 
 ----
 * If the dependencies are available in local repository then maven will execute directly.
@@ -73,7 +71,7 @@ NOTE:
 * If the dependencies are avaliable in remote repository then maven will download them to local repository.
 
 
-** If remote repository is not available or dependencies are not available then maven will raise some exception.
+** If the dependencies are not available in remote repository then maven will raise some exceptions.
 
 
 3. Dependency management:
@@ -81,8 +79,7 @@ NOTE:
 --> In maven projects, dependency means dependent JAR files.
 --> JARs,WARs,EARs files are treated as dependency files.
 --> MAVEN is not giving any option to developers to downlaod the jAR files, instead of MAVEN will download the required 
-    JAR files and maven will keep that jar files in our aplication. but, we need to specify which dependencies
-    we need in our application.
+    JAR files to our aplication. but, we need to specify which dependencies we need in our application.
      
      <project>
      --------
@@ -119,7 +116,7 @@ Types of scopes in maven:- There are 6 types,
 2. Provided Scope:- This scope will be used at compiling and testing stages.
 3. Runtime Scope:-  This scope will be used at runtime and test cases.
 4. Test Scope:-     This scope will be used at only test cases
-5. System Scope:-   This scope will be used as provided scope only. but, the diff is it will not get any jar files
+5. System Scope:-   This scope is same as provided scope only. but, the diff is it will not get any jar files
                     from remote repository, it will get jar files only from central repository.
 6. Import Scope:-   This scope will be used at pom inhertance only. like parent pom and child pom.
 
@@ -149,32 +146,95 @@ Types of scopes in maven:- There are 6 types,
      </project>
 
 --> Effective POM = Super POM + Present application POM
---> Command for this -- mvn help:effective-pom
+--> Command for this --> mvn help:effective-pom
 
 5. Build configurations:
 ------------------------
+-->It defines two things
+   1. Plugin configurations
+   2. Resource configurations
+
+
+1. Plugin configurations:- Each and every action is treated as plugin. eg:-complie test cases,packaging etc.
+----------------------
+--> There are two types of plugins
+    1. Build plugins
+    2. Reporting plugins
+
+Build plugins:-
+--------------
+1. Clean plugin:- it delete all the generated .cls files perviously.
+2. Compiler plugin:- it compiles our code.
+3. Deploy plugin:- it deploys our application to the server.
+4. Install plugin:- it try to install jar file which is created for your application into local repository.
+5. Resource plugin:- gathering all the output resources in the form of single output folder.
+6. EAR,WAR,JAR Plugins:- creating EAR,WAR,JAR file in order to deploy into our application.
+
+Reporting plugins:- These plugins are executed during the website generations.
+------------------
+1. Javadoc:- It generates document for our application.
+2. Project-info-repots:- if we want to prepare any reports for statuses we use this plugin.
+3. Surfire-reports:- These are used to generate test case reports.
+
+
+2. Resources configuration:-
+----------------------------
+
+
+6. Build profiles:- 
+------------------
+--> Build profiles refers to the set of configuration values, that are required to build project using different
+configurations.
+--> A build profile helps in customizing build for different environments.
+-->There are different profiles like 
+    
+-->development mode
+-->testing mode
+-->production mode
+
+Life cycle of build:
+--------------------
+--> The build life cycle has different build phases or stages
+    
+    Compile-->test complie-->test-->package-->integration test-->verify-->install-->deploy.
 
 
 
+ARCHETYPE:
+----------
+--> Archetype is nothing but template provided by the maven to create a project.
+--> There are lot of maven archetypes listed out in order to create projects under different frameworks like struts,
+spring,hibernate,webservices amd many other.
+
+--> To create archetype we use this command ---> mvn archetype:generate -->this command listout all archetypes.
+
+--> creating a maven project we use this command: mvn archetype:generate
+--> To install any new jar files we use this command: mvn install:install-file
 
 
+Advantages of maven:
+--------------------
+--> Apache maven helps to manage all the processes such as building, documentation and releasing in project management.
+--> The tool simplifies the process of project building.
+--> The task of downloading the jar files and other dependencies is done automatically.
+--> Maven provides easy access to all the required information.
+-->In maven, it is easy to add new dependencies, you must write the dependency code in pom file.
 
 
+JAR File:-
+---------
+--> JAR means java archive.
+--> jar is a group of .cls files.
 
+WAR File:-
+----------
+--> WAR means web archive.
+--> The total web application is converted into a single zip file. For that we use WAR file.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+EAR File:-
+----------
+--> EAR means enterprinre archive
+--> An EAR file represents enterprenue application.
 
 
 
