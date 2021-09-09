@@ -1,0 +1,26 @@
+SQL - It is a structured query language, which is computer language for storing,manipulating,and retrieving data stored in a relational database.
+
+
+SQL - STRUCTURED QUERY LANGUAGE.
+
+All the relational database management systems are MYSQL,MS ACCESS,ORACLE,SYBASE ETC.
+
+SQL Process :- when we are executing an sql command for any RDBMS,the system determines the best way to carry out
+your request and sql engines figures out how to interpret the task.
+
+There are various components included in this process
+These components are -
+1.Query dispatcher
+2.Optimization engines
+3.Classic query engine
+4.SQL query engine
+
+A classic query engine handles all non sql queries,but sql query engine won't handle logical files.
+
+SQL COMMANDS:-
+------------------------
+DDL - Data Definition Language
+
+1. CREATE - Creates a new table, a view of a table, or other object in the database.
+2. ALTER  - Modifies an existing database object,such as a table.
+3. DROP - Deletes an entire table, a view of a table or other objects in the database.
